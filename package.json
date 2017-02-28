@@ -1,0 +1,23 @@
+{
+  "name": "angularjs-phonecat-es6-webpack2-karma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=./jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wefine/angularjs-phonecat-es6-webpack2-karma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wefine/angularjs-phonecat-es6-webpack2-karma/issues"
+  },
+  "homepage": "https://github.com/wefine/angularjs-phonecat-es6-webpack2-karma#readme",
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  }
+}
