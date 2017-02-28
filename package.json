@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine JASMINE_CONFIG_PATH=./jasmine.json"
+    "jasmine": "jasmine JASMINE_CONFIG_PATH=./jasmine.json",
+    "test": "cross-env ./node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,13 @@
   },
   "homepage": "https://github.com/wefine/angularjs-phonecat-es6-webpack2-karma#readme",
   "devDependencies": {
-    "jasmine": "^2.5.3"
+    "browserify": "^14.1.0",
+    "cross-env": "^3.1.4",
+    "jasmine": "^2.5.3",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.5.0",
+    "karma-browserify": "^5.1.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
   }
 }
