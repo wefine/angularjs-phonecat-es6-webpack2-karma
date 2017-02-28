@@ -40,3 +40,5 @@ jspm_packages
 *.iml
 build
 dist
+
+karma_report.html

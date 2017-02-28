@@ -29,8 +29,18 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress', 'html'],
 
+        htmlReporter: {
+            outputFile: 'karma_report.html',
+
+            // Optional
+            pageTitle: 'Unit Tests',
+            subPageTitle: 'Jasmine examples test report',
+            groupSuites: true,
+            useCompactStyle: false,
+            useLegacyStyle: true
+        },
 
         // web server port
         port: 9876,

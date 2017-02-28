@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "jasmine": "jasmine JASMINE_CONFIG_PATH=./jasmine.json",
     "test": "cross-env ./node_modules/karma/bin/karma start"
   },
   "repository": {
@@ -26,6 +25,7 @@
     "karma": "^1.5.0",
     "karma-browserify": "^5.1.1",
     "karma-chrome-launcher": "^2.0.0",
+    "karma-htmlfile-reporter": "^0.3.5",
     "karma-jasmine": "^1.1.0"
   }
 }
