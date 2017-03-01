@@ -15,7 +15,7 @@ module.exports = function karmaConfig(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'src/**/*.[hH]elper.js',
+            // 'src/**/*.[hH]elper.js',
             {pattern: 'node_modules/babel-polyfill/dist/polyfill.js', watched: false},
             'tests.webpack.js'
         ],

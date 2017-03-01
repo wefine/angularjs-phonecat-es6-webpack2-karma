@@ -1,17 +1,12 @@
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Google Phone Gallery</title>
-  </head>
-  <body ng-controller="PhoneListController">
+</head>
+<body>
 
-    <ul>
-      <li ng-repeat="phone in phones">
-        <span>{{phone.name}}</span>
-        <p>{{phone.snippet}}</p>
-      </li>
-    </ul>
+<phone-list></phone-list>
 
-  </body>
+</body>
 </html>
