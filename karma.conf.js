@@ -4,7 +4,7 @@ module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: 'src',
+        basePath: '',
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -13,17 +13,21 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            '**/*.[hH]elper.js',
-            '**/*.[sS]pec.js'
+            'src/**/*.[hH]elper.js',
+            { pattern: 'node_modules/babel-polyfill/dist/polyfill.js', watched: false },
+            'tests.webpack.js'
         ],
 
         // list of files to exclude
-        exclude: [],
+        exclude: [
+            "**/coverage"
+        ],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            '**/*.js': ['browserify', 'coverage']
+            'src/**/*.js': ['coverage'],
+            'tests.webpack.js': ['browserify','coverage','webpack', 'sourcemap'],
         },
 
         // test results reporter to use
@@ -81,7 +85,9 @@ module.exports = function (config) {
         // how many browser should be started simultaneous
         concurrency: Infinity,
 
-        // anything named karma-* is normally auto included so you probably dont need this
-        // plugins: ['karma-coverage-istanbul-reporter']
+        // Hide webpack build information from output
+        webpackMiddleware: {
+            stats: 'errors-only'
+        }
     })
 };

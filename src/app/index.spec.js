@@ -1,14 +1,14 @@
-'use strict';
+import './index';
+import 'angular-mocks';
 
-describe('PhoneListController', function() {
+describe('PhoneListController', function () {
 
-  beforeEach(module('phonecatApp'));
+    beforeEach(angular.mock.module('phonecatApp'));
 
-  it('should create a `phones` model with 3 phones', inject(function($controller) {
-    var scope = {};
-    var ctrl = $controller('PhoneListController', {$scope: scope});
+    it('should create a `phones` model with 3 phones', angular.mock.inject(function ($controller) {
+        var scope = {};
+        var ctrl = $controller('PhoneListController', {$scope: scope});
 
-    expect(scope.phones.length).toBe(3);
-  }));
-
+        expect(scope.phones.length).toBe(3);
+    }));
 });
