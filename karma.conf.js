@@ -1,39 +1,42 @@
-// Karma configuration
+const path = require('path');
+const sourcePath = path.join(__dirname, './src');
 
-module.exports = function (config) {
+// Reference: http://karma-runner.github.io/0.12/config/configuration-file.html
+module.exports = function karmaConfig(config) {
     config.set({
-
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
 
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'browserify'],
-
+        frameworks: [
+            // Reference: https://github.com/karma-runner/karma-jasmine
+            // Set framework to jasmine
+            'jasmine'
+        ],
 
         // list of files / patterns to load in the browser
         files: [
             'src/**/*.[hH]elper.js',
-            { pattern: 'node_modules/babel-polyfill/dist/polyfill.js', watched: false },
+            {pattern: 'node_modules/babel-polyfill/dist/polyfill.js', watched: false},
             'tests.webpack.js'
         ],
 
         // list of files to exclude
-        exclude: [
-            "**/coverage"
-        ],
+        exclude: [],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'src/**/*.js': ['coverage'],
-            'tests.webpack.js': ['browserify','coverage','webpack', 'sourcemap'],
+            // Reference: http://webpack.github.io/docs/testing.html
+            // Reference: https://github.com/webpack/karma-webpack
+            // Convert files with webpack and load sourcemaps
+            'tests.webpack.js': ['webpack', 'sourcemap'],
+            'src/app/**/!(*.config|*.module|*.spec|*.protractor)*.js': ['coverage']
         },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'html', 'coverage'],
+        reporters: ['html', 'spec', 'coverage'],
 
         htmlReporter: {
             outputFile: 'karma_report.html',
@@ -46,14 +49,21 @@ module.exports = function (config) {
             useLegacyStyle: true
         },
 
+        specReporter: {
+            maxLogLines: 5, // limit number of lines logged per test
+            suppressErrorSummary: true, // do not print error summary
+            suppressFailed: false, // do not print information about failed tests
+            suppressPassed: false, // do not print information about passed tests
+            suppressSkipped: true // do not print information about skipped tests
+        },
+
         coverageReporter: {
             dir: 'coverage/',
             reporters: [
-                { type: 'text-summary' },
-                { type: 'html' }
+                {type: 'text-summary'},
+                {type: 'html'}
             ]
         },
-
 
         // web server port
         port: 9876,
@@ -89,5 +99,5 @@ module.exports = function (config) {
         webpackMiddleware: {
             stats: 'errors-only'
         }
-    })
+    });
 };
