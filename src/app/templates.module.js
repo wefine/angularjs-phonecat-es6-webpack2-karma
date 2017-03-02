@@ -1,0 +1,1 @@
+import angular from 'angular'; export default angular.module('templates', []).run(['$templateCache', function($templateCache) {$templateCache.put('phone-list/phone-list.template.html','<ul>\n  <li ng-repeat="phone in $ctrl.phones">\n    <span>{{phone.name}}</span>\n    <p>{{phone.snippet}}</p>\n  </li>\n</ul>\n');}]);

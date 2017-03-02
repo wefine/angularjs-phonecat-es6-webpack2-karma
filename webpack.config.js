@@ -11,7 +11,7 @@ const appRoot = __dirname + '/src/app';
 module.exports = {
     context: appRoot,
     entry: {
-        app: ['./index.js']
+        app: ['./index.module.js']
     },
     output: {
         path: appRoot,
