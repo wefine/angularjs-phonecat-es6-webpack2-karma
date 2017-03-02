@@ -1,7 +1,5 @@
-
-export const phoneListComponent = {
-    templateUrl: 'phone-list/phone-list.template.html',
-    controller: function PhoneListController() {
+export class PhoneListController {
+    constructor() {
         this.phones = [
             {
                 name: 'Nexus S',
@@ -14,5 +12,10 @@ export const phoneListComponent = {
                 snippet: 'The Next, Next Generation tablet.'
             }
         ];
-    },
+    }
+}
+
+export const phoneListComponent = {
+    templateUrl: 'phone-list/phone-list.template.html',
+    controller: PhoneListController
 };
