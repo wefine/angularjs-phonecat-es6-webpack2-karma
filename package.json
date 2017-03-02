@@ -6,9 +6,11 @@
   "scripts": {
     "prestart": "cross-env gulp",
     "test": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start",
-    "start": "webpack-dev-server",
+    "start": "cross-env webpack-dev-server",
     "prod": "cross-env NODE_ENV='production' webpack-dev-server --watch-stdin",
-    "build": "cross-env NODE_ENV='production' webpack"
+    "build": "cross-env NODE_ENV='production' webpack",
+    "preprotractor": "cross-env ./node_modules/protractor/bin/webdriver-manager update ",
+    "protractor": "cross-env ./node_modules/protractor/bin/protractor ./protractor.conf.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,6 @@
   },
   "homepage": "https://github.com/wefine/angularjs-phonecat-es6-webpack2-karma#readme",
   "devDependencies": {
-    "angular-template-cache": "^1.2.0",
     "autoprefixer": "^6.7.5",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
@@ -38,7 +39,7 @@
     "babel-preset-es2015": "^6.22.0",
     "bitters": "git+https://github.com/thoughtbot/bitters.git#v1.5.0",
     "browserify": "^14.1.0",
-    "concurrently": "^3.3.0",
+    "concurrently": "^3.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.2",
