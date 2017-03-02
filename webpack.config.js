@@ -11,7 +11,12 @@ const appRoot = __dirname + '/src/app';
 module.exports = {
     context: appRoot,
     entry: {
-        app: ['./index.module.js']
+        app: ['./index.module.js'],
+        vendor: [
+            'angular',
+            'angular-animate',
+            'angular-ui-router',
+        ]
     },
     output: {
         path: appRoot,
@@ -31,6 +36,30 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: ExtractTextPlugin.extract(["css-loader"]),
+            },
+            {
+                test: /\.(png|jpe?g|gif|ico)$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
             },
         ]
     },

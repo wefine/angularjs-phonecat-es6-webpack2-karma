@@ -6,6 +6,7 @@ import templates from './templates.module';
 import './index.scss';
 
 angular.module('phonecatApp', [
+    'ui.bootstrap',
     templates.name,
     phoneList.name
 ]);

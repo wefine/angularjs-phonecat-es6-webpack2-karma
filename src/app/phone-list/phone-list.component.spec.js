@@ -1,5 +1,4 @@
 import angular from "angular";
-
 import "angular-mocks";
 import "./phone-list.module";
 
@@ -14,12 +13,19 @@ describe('phoneList', function () {
     // Test the controller
     describe('PhoneListController', function () {
 
-        it('should create a `phones` model with 3 phones', inject(function ($componentController) {
-            let ctrl = $componentController('phoneList');
+        let ctrl;
 
-            expect(ctrl.phones.length).toBe(3);
+        beforeEach(inject(function ($componentController) {
+            ctrl = $componentController('phoneList');
         }));
 
+        it('should create a `phones` model with 3 phones', function () {
+            expect(ctrl.phones.length).toBe(3);
+        });
+
+        it('should set a default value for the `orderProp` model', function () {
+            expect(ctrl.orderProp).toBe('age');
+        });
     });
 
 });
