@@ -16,6 +16,7 @@ module.exports = {
         vendor: [
             'angular',
             'angular-animate',
+            'angular-route',
             'angular-ui-router',
         ]
     },
