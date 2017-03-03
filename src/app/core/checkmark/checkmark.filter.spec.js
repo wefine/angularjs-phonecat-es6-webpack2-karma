@@ -1,9 +1,5 @@
-import angular from "angular";
-import "angular-mocks";
-import "angular-route";
-import "../core.module";
 
-const {inject} = angular.mock;
+import "../core.module";
 
 describe('checkmark', function () {
 

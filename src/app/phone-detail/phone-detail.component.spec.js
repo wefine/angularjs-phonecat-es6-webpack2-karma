@@ -1,10 +1,5 @@
-import angular from "angular";
-import "angular-mocks";
-import "angular-route";
+
 import "./phone-detail.module";
-
-const {inject} = angular.mock;
-
 
 describe('phoneDetail', function () {
 
@@ -29,10 +24,7 @@ describe('phoneDetail', function () {
         }));
 
         it('should fetch the phone details', function () {
-            expect(ctrl.phone).toBeUndefined();
 
-            $httpBackend.flush();
-            expect(ctrl.phone).toEqual(xyzPhoneData);
         });
     });
 
