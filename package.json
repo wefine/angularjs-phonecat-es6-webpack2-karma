@@ -6,9 +6,9 @@
   "scripts": {
     "prestart": "cross-env gulp",
     "test": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start",
-    "start": "cross-env webpack-dev-server",
-    "prod": "cross-env NODE_ENV='production' webpack-dev-server --watch-stdin",
-    "build": "cross-env NODE_ENV='production' webpack",
+    "start": "cross-env node ./node_modules/webpack-dev-server/bin/webpack-dev-server",
+    "prod": "cross-env NODE_ENV='production' node ./node_modules/webpack-dev-server/bin/webpack-dev-server --watch-stdin",
+    "build": "cross-env NODE_ENV='production' node ./node_modules/webpack/bin/webpack --config ./webpack.config.js",
     "preprotractor": "cross-env ./node_modules/protractor/bin/webdriver-manager update ",
     "protractor": "cross-env ./node_modules/protractor/bin/protractor ./protractor.conf.js"
   },

@@ -65,15 +65,23 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: appRoot + '/index.html',
-            inject: 'body'
-        }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
             "window.jQuery": "jquery"
         }),
+        new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            template: appRoot + '/index.html',
+            inject: 'body',
+            minify: {
+                collapseWhitespace: true,
+                conservativeCollapse: true,
+                minifyCSS: true,
+                minifyJS: true
+            },
+        }),
+
         new ExtractTextPlugin('assets/css/[hash].bundle.css'),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'assets/js/[hash].vendor.js'}),
         new CopyWebpackPlugin([{
