@@ -77,7 +77,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: '[hash].vendor.js'}),
     ],
     devServer: {
-        contentBase: path.join(__dirname, "app"),
+        contentBase: path.join(__dirname, "src/public"),
         compress: true,
         host: "0.0.0.0",
         port: 9000
